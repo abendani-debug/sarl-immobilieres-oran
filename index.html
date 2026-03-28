@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARL IMMOBILIÈRES ALGÉRIENNE - Promotion Immobilière à Oran</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #F4A500;
+            --dark: #1a1a1a;
+            --light: #f8f8f8;
+            --text: #2c2c2c;
+            --accent: #0066cc;
+            --grey: #6b7280;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+            min-width: 50px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, #e89600 100%);
+            color: white !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(244, 165, 0, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 165, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            color: white;
+            padding: 8rem 5% 6rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(244, 165, 0, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .hero-text h1 .accent {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+            animation: slideInLeft 0.8s ease 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: slideInLeft 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #e89600 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(244, 165, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(244, 165, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .hero-image {
+            animation: slideInRight 0.8s ease;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--grey);
+            margin-top: 1.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--grey);
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, #e89600 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature h4 {
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .feature p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #f5f5f5 0%, #f9f9f9 100%);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, #e89600 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--grey);
+            line-height: 1.8;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 5%;
+            background: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, #e89600 100%);
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-content {
+            transform: translateY(0);
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--dark) 0%, #2d2d2d 100%);
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact .section-header {
+            color: white;
+        }
+
+        .contact .section-header h2::after {
+            background: var(--primary);
+        }
+
+        .contact .section-header p {
+            color: #bbb;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p {
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            color: #999;
+            text-align: center;
+            padding: 3rem 5%;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-grid,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="SARL Immobilières Algérienne">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Qui sommes nous</a></li>
+                <li><a href="#services">Nos services</a></li>
+                <li><a href="#projects">Nos projets</a></li>
+                <li><a href="#contact" class="cta-btn">Nous contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Construire <span class="accent">vos rêves</span> immobiliers à Oran</h1>
+                <p>Réalisez vos projets avec un partenaire fiable et expérimenté dans la promotion immobilière</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Découvrir nos projets</a>
+                    <a href="#contact" class="btn btn-secondary">Prendre rendez-vous</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="50" y="200" width="80" height="150" fill="#F4A500" opacity="0.3"/>
+                    <rect x="50" y="200" width="80" height="150" fill="none" stroke="#F4A500" stroke-width="3"/>
+                    <rect x="60" y="220" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="85" y="220" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="110" y="220" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="60" y="250" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="85" y="250" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="110" y="250" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="60" y="280" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="85" y="280" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+                    <rect x="110" y="280" width="15" height="20" fill="#F4A500" opacity="0.5"/>
+
+                    <rect x="160" y="140" width="90" height="210" fill="#F4A500" opacity="0.3"/>
+                    <rect x="160" y="140" width="90" height="210" fill="none" stroke="#F4A500" stroke-width="3"/>
+                    <rect x="175" y="160" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="205" y="160" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="235" y="160" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="175" y="200" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="205" y="200" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="235" y="200" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="175" y="240" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="205" y="240" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="235" y="240" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="175" y="280" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="205" y="280" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    <rect x="235" y="280" width="18" height="25" fill="#F4A500" opacity="0.5"/>
+                    
+                    <line x1="30" y1="350" x2="370" y2="350" stroke="#F4A500" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <h2>Qui sommes-nous</h2>
+            <p>Une entreprise engagée pour votre satisfaction</p>
+        </div>
+        <div class="about-grid">
+            <div>
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="30" y="80" width="340" height="200" fill="#F4A500" opacity="0.1" rx="10"/>
+                    <circle cx="100" cy="120" r="40" fill="#F4A500" opacity="0.3"/>
+                    <rect x="60" y="180" width="80" height="80" fill="#F4A500" opacity="0.2" rx="5"/>
+                    <circle cx="300" cy="140" r="50" fill="#F4A500" opacity="0.2"/>
+                    <rect x="250" y="200" width="100" height="70" fill="#F4A500" opacity="0.15" rx="5"/>
+                </svg>
+            </div>
+            <div class="about-content">
+                <h3>SARL Immobilières Algérienne</h3>
+                <p>Depuis de nombreuses années, nous œuvrons pour offrir des solutions immobilières de qualité supérieure aux habitants d'Oran. Notre expertise et notre dévouement nous permettent de concrétiser les rêves résidentiels de nos clients.</p>
+                <p>Spécialisés dans la promotion immobilière, nous créons des espaces de vie modernes, fonctionnels et élégants qui correspondent aux besoins et aux aspirations de chaque famille.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Expérience Confirmée</h4>
+                            <p>Plus de 20 ans dans le secteur immobilier</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Qualité Garantie</h4>
+                            <p>Normes de construction les plus strictes</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Service Client</h4>
+                            <p>Accompagnement personnalisé du début à la fin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <h2>Nos Services</h2>
+                <p>Des solutions complètes pour vos projets immobiliers</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Construction Moderne</h3>
+                    <p>Des immeubles résidentiels construits selon les normes internationales avec des architectures contemporaines et fonctionnelles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Conception Architecturale</h3>
+                    <p>Designs innovants et ergonomiques pensés pour le confort et le bien-être de nos résidents.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3>Vente de Propriétés</h3>
+                    <p>Large gamme d'appartements et de locaux commerciaux à des prix compétitifs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Facilités de Paiement</h3>
+                    <p>Plans de paiement flexibles pour adapter votre acquisition à votre budget.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Suivi du Projet</h3>
+                    <p>Suivi transparent et régulier de votre projet du lancement jusqu'à la livraison.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏡</div>
+                    <h3>Consultation Gratuite</h3>
+                    <p>Nos experts vous conseillent gratuitement pour trouver le bien immobilier idéal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="section-header">
+            <h2>Nos Projets Phares</h2>
+            <p>Découvrez nos réalisations et projets en cours</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Résidence Côtière</h3>
+                    <p>Complexe résidentiel face à la mer - 120 appartements</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Cité Moderne</h3>
+                    <p>150 villas avec espaces verts aménagés</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Immeuble Prestige</h3>
+                    <p>80 appartements haut de gamme en centre-ville</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Zone Commerciale</h3>
+                    <p>Locaux commerciaux et bureaux modernes</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Quartier Résidentiel</h3>
+                    <p>200 logements + commerces de proximité</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Villa Luxe</h3>
+                    <p>Propriétés haut standing avec piscine privée</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2>Prenez Contact</h2>
+            <p>Nous sommes à votre disposition pour répondre à toutes vos questions</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>Boulevard du Rhone<br>Oran 31000, Algérie</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>+213 (0) 41 XX XX XX<br>+213 (0) 6XX XX XX XX</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bdded2d3c9dcdec9fdcedccfd190d4d0d0d2dfd4d1d4d8cfd893d9c7">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3851565e57784b594a5415515555575a5154515d4a5d165c42">[email&#160;protected]</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <h4>Heures d'Ouverture</h4>
+                        <p>Lun-Ven: 08:00 - 18:00<br>Sam: 09:00 - 13:00</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Nom Complet</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem;">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SARL IMMOBILIÈRES ALGÉRIENNE. Tous droits réservés. | Promotion Immobilière à Oran</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Merci pour votre message! Nous vous recontacterons très bientôt.');
+            event.target.reset();
+        }
+
+        // Smooth scroll behavior for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+     
