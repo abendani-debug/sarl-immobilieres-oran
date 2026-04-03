@@ -221,6 +221,9 @@
             width: 100%;
             height: auto;
             filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            border-radius: 16px;
+            object-fit: cover;
+            max-height: 500px;
         }
 
         /* Animations */
@@ -430,6 +433,8 @@
             transition: all 0.3s ease;
             height: 300px;
             background: linear-gradient(135deg, var(--primary) 0%, #e89600 100%);
+            background-size: cover;
+            background-position: center;
         }
 
         .project-card:hover {
@@ -642,36 +647,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="50" y="200" width="80" height="150" fill="#F4A500" opacity="0.3"/>
-                    <rect x="50" y="200" width="80" height="150" fill="none" stroke="#F4A500" stroke-width="3"/>
-                    <rect x="60" y="220" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="85" y="220" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="110" y="220" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="60" y="250" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="85" y="250" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="110" y="250" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="60" y="280" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="85" y="280" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-                    <rect x="110" y="280" width="15" height="20" fill="#F4A500" opacity="0.5"/>
-
-                    <rect x="160" y="140" width="90" height="210" fill="#F4A500" opacity="0.3"/>
-                    <rect x="160" y="140" width="90" height="210" fill="none" stroke="#F4A500" stroke-width="3"/>
-                    <rect x="175" y="160" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="205" y="160" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="235" y="160" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="175" y="200" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="205" y="200" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="235" y="200" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="175" y="240" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="205" y="240" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="235" y="240" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="175" y="280" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="205" y="280" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    <rect x="235" y="280" width="18" height="25" fill="#F4A500" opacity="0.5"/>
-                    
-                    <line x1="30" y1="350" x2="370" y2="350" stroke="#F4A500" stroke-width="2"/>
-                </svg>
+                <img src="hero.jpg" alt="Résidence moderne à Oran - SARL Immobilières Algérienne">
             </div>
         </div>
     </section>
@@ -683,14 +659,8 @@
             <p>Une entreprise engagée pour votre satisfaction</p>
         </div>
         <div class="about-grid">
-            <div>
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="30" y="80" width="340" height="200" fill="#F4A500" opacity="0.1" rx="10"/>
-                    <circle cx="100" cy="120" r="40" fill="#F4A500" opacity="0.3"/>
-                    <rect x="60" y="180" width="80" height="80" fill="#F4A500" opacity="0.2" rx="5"/>
-                    <circle cx="300" cy="140" r="50" fill="#F4A500" opacity="0.2"/>
-                    <rect x="250" y="200" width="100" height="70" fill="#F4A500" opacity="0.15" rx="5"/>
-                </svg>
+            <div style="border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12);">
+                <img src="residence-cotiere.jpg" alt="Nos réalisations immobilières à Oran" style="width:100%; height:350px; object-fit:cover; display:block;">
             </div>
             <div class="about-content">
                 <h3>SARL Immobilières Algérienne</h3>
@@ -773,37 +743,37 @@
             <p>Découvrez nos réalisations et projets en cours</p>
         </div>
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" style="background-image: url('residence-cotiere.jpg');">
                 <div class="project-content">
                     <h3>Résidence Côtière</h3>
                     <p>Complexe résidentiel face à la mer - 120 appartements</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" style="background-image: url('villa-luxe.jpg');">
                 <div class="project-content">
                     <h3>Cité Moderne</h3>
                     <p>150 villas avec espaces verts aménagés</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" style="background-image: url('hero.jpg');">
                 <div class="project-content">
                     <h3>Immeuble Prestige</h3>
                     <p>80 appartements haut de gamme en centre-ville</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" style="background-image: url('zone-commerciale.jpg');">
                 <div class="project-content">
                     <h3>Zone Commerciale</h3>
                     <p>Locaux commerciaux et bureaux modernes</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" style="background-image: url('zone-commerciale.jpg'); background-position: left center;">
                 <div class="project-content">
                     <h3>Quartier Résidentiel</h3>
                     <p>200 logements + commerces de proximité</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" style="background-image: url('villa-luxe.jpg'); background-position: right center;">
                 <div class="project-content">
                     <h3>Villa Luxe</h3>
                     <p>Propriétés haut standing avec piscine privée</p>
