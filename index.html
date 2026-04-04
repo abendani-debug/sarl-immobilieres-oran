@@ -122,7 +122,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('images/MeteoOranCover - 1.png') center/cover no-repeat;
+            background: transparent;
             color: white;
             padding: 8rem 5% 6rem;
             min-height: 100vh;
@@ -130,6 +130,26 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            z-index: 1;
         }
 
         .hero::before {
@@ -144,15 +164,15 @@
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-text h1 {
@@ -725,6 +745,10 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="video/SIA_Video2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Construire <span class="accent">vos rêves</span> immobiliers à Oran</h1>
@@ -733,9 +757,6 @@
                     <a href="#projects" class="btn btn-primary">Découvrir nos projets</a>
                     <a href="#contact" class="btn btn-secondary">Prendre rendez-vous</a>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="images/Facebookcover.png" alt="Résidence moderne à Oran - SARL Immobilières Algérienne">
             </div>
         </div>
     </section>
